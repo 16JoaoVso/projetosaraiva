@@ -37,7 +37,7 @@ router.post("/cadastrar", (req, res) => {
         req.body.senha = crypt
         data.query("insert into usuario set ?",req.body,(error,result)=>{
             if(error){
-                return res.status(500).send({msg:"Erro ao tentar cadastrar"})
+                return res.status(500).send({msg:"Erro ao tentar cadastrar"+error})
             }
             res.status(201).send({msg:"ok",payload:result})
         })
